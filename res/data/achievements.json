@@ -1,0 +1,25 @@
+{
+    "achievements": {
+	    	{ 
+		        "categorie": "Cat1",
+				"childrens": [{
+			            "title": "Welcome",
+						"Description": "Launch at least once the app in order to unlock this achievement",
+						"difficulty" : "1",
+			        }, 
+			        {
+			        	"title": "Make a click",
+						"Description": "Hit me !",
+						"difficulty" : "1",
+		        	}]
+		    },
+		    {
+		    	"categorie": "Cat2",
+				"childrens": [{
+			            "title": "Made nothing",
+						"Description": "Launch the app and wait 15 minutes",
+						"difficulty" : "1",
+			        }]
+		    }   
+		}	
+}
