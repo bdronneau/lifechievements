@@ -1,32 +1,48 @@
 {
     "achievements": [
         {
-            "categorie": "Cat1",
+            "category": "Cat1",
+			"icon":"path_to_icon",
             "children": [
                 {
                     "title": "Welcome",
                     "Description": "Launch at least once the app in order to unlock this achievement",
-                    "difficulty": "1"
+                    "difficulty": "1",
+					"icon":"path_to_icon"
                     
                 },
                 {
                     "title": "Make a click",
                     "Description": "Hit me !",
-                    "difficulty": "1"
+                    "difficulty": "1",
+					"icon":"path_to_icon"
                     
                 }
-            ]
+            ],
+			"subCategories":[{ 
+				"category": "SubCat1",
+				"icon":"path_to_icon",
+				"children": [{
+						"title": "SubCatExample",
+						"Description": "Example",
+						"difficulty" : "1",
+					    "icon":"path_to_icon"
+					}],
+				"subCategories":[]
+			}]
         },
         {
-            "categorie": "Cat2",
+            "category": "Cat2",
+			"icon":"path_to_icon",
             "children": [
                 {
                     "title": "Made nothing",
                     "Description": "Launch the app and wait 15 minutes",
-                    "difficulty": "1"
-                    
+                    "difficulty": "1",
+					"icon":"path_to_icon"
                 }
-            ]
+            ],
+			"subCategories":[]
         }
     ]
 }
