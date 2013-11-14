@@ -3,6 +3,7 @@ package com.lifechievements;
 import java.util.Locale;
 
 
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -18,7 +19,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import org.json.JSONObject;
 
 public class MainActivity extends FragmentActivity {
 
@@ -36,7 +36,7 @@ public class MainActivity extends FragmentActivity {
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -129,5 +129,4 @@ public class MainActivity extends FragmentActivity {
 			return rootView;
 		}
 	}
-
 }
