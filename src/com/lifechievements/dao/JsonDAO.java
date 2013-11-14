@@ -1,12 +1,9 @@
 package com.lifechievements.dao;
 
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-
-import org.json.JSONArray;
+import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -57,8 +54,14 @@ public class JsonDAO extends Activity  {
 	            Log.e("JSON Parser", "Error parsing data " + e.toString());
 	            myFile = null;
 	        }
-        }
-        
+        }   
 		return myFile;
+	}
+	
+	
+	public ArrayList JSONObjectToArrayList(JSONObject jsonObjt){
+		ArrayList arrayListFull = null;
+				
+		return arrayListFull;
 	}
 }
