@@ -3,6 +3,7 @@ package com.lifechievements.dao;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import org.json.JSONArray;
@@ -35,27 +36,29 @@ public class JsonDAO extends Activity  {
 	{
 		JSONObject myFile = null;
 		String json = null;
-			// Reading text file from assets folder
-			try {
-	            BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("jsonData/achievements.json")));
-	            StringBuilder sb = new StringBuilder();
-	            String line = null;
-	            while ((line = reader.readLine()) != null) {
-	                sb.append(line + "\n");
-	            }
-	            json = sb.toString();
-	        } catch (Exception e) {
-	            Log.e("Buffer Error", "Error converting result " + e.toString());
-	        }
-			
-			 // try parse the string to a JSON object
-	        try {
+		// Reading text file from assets folder
+	  	try {
+            InputStream is = getAssets().open(file);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException e) {
+            Log.e("Buffer Error", "Error converting result " + e.toString());
+            json = null;
+        }
+		
+		 // try parse the string to a JSON object if content is not null
+        if (json != null || json == ""){
+        	try {
 	        	myFile = new JSONObject(json);
 	        } catch (JSONException e) {
 	            Log.e("JSON Parser", "Error parsing data " + e.toString());
+	            myFile = null;
 	        }
+        }
+        
 		return myFile;
-	
 	}
-
 }
