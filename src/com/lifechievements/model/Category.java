@@ -49,4 +49,10 @@ public class Category {
 	public void setSubCat(List<Category> subCat) {
 		this.subCat = subCat;
 	}
+	
+	public String toString(){
+		String result = "";
+		//TODO toString en récursif pour les achievements+subCat
+		return result;
+	}
 }

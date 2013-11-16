@@ -5,15 +5,17 @@
 			"icon":"path_to_icon",
             "children": [
                 {
+                	"id": 1,
                     "title": "Welcome",
-                    "Description": "Launch at least once the app in order to unlock this achievement",
+                    "description": "Launch at least once the app in order to unlock this achievement",
                     "difficulty": "1",
 					"icon":"path_to_icon"
                     
                 },
                 {
+                	"id": 2,
                     "title": "Make a click",
-                    "Description": "Hit me !",
+                    "description": "Hit me !",
                     "difficulty": "1",
 					"icon":"path_to_icon"
                     
@@ -23,8 +25,9 @@
 				"category": "SubCat1",
 				"icon":"path_to_icon",
 				"children": [{
+						"id": 100,
 						"title": "SubCatExample",
-						"Description": "Example",
+						"description": "Example",
 						"difficulty" : "1",
 					    "icon":"path_to_icon"
 					}],
@@ -36,8 +39,9 @@
 			"icon":"path_to_icon",
             "children": [
                 {
+                	"id": 200,
                     "title": "Made nothing",
-                    "Description": "Launch the app and wait 15 minutes",
+                    "description": "Launch the app and wait 15 minutes",
                     "difficulty": "1",
 					"icon":"path_to_icon"
                 }
