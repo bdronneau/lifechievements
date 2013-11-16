@@ -4,23 +4,26 @@ package com.lifechievements.dao;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 //For getAssets
 import android.app.Activity;
+import android.content.Context;
 import android.util.Log;
 
 
-public class JsonDAO extends Activity  {
+public class JsonDAO  {
 
-
+	private Context context;
 	
 	/*
 	 * Default constructor
 	 */
-	public JsonDAO(){
-		//TODO : initialization 
+	public JsonDAO(Context ctx){
+		context = ctx;
 	}
 	
 	/*
@@ -35,7 +38,7 @@ public class JsonDAO extends Activity  {
 		String json = null;
 		// Reading text file from assets folder
 	  	try {
-            InputStream is = getAssets().open(file);
+            InputStream is = context.getAssets().open(file);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
