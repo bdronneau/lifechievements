@@ -54,7 +54,7 @@ public class JsonDAO {
 		}
 
 		// try parse the string to a JSON object if content is not null
-		if (json != null || json == "") {
+		if (json != null || json != "") {
 			try {
 				myFile = new JSONObject(json);
 			} catch (JSONException e) {
