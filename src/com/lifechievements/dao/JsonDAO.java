@@ -59,7 +59,7 @@ public class JsonDAO {
 	 * @return : JSONObject which contain the file
 	 */
 	public JSONObject getJSONFromFile(String file) {
-		JSONObject myFile = null;
+		JSONObject result = null;
 		String json = null;
 		// Reading text file from assets folder
 		try {
@@ -75,15 +75,15 @@ public class JsonDAO {
 		}
 
 		// try parse the string to a JSON object if content is not null
-		if (json != null || json == "") {
+		if (json != null || json != "") {
 			try {
-				myFile = new JSONObject(json);
+				result = new JSONObject(json);
 			} catch (JSONException e) {
 				Log.e("JSON Parser", "Error parsing data " + e.toString());
-				myFile = null;
+				result = null;
 			}
 		}
-		return myFile;
+		return result;
 	}
 
 	/**
