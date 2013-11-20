@@ -28,7 +28,9 @@ public class JsonDAO {
 	 */
 	public JsonDAO(Context context) {
 		this.context = context;
-		initJsonDb();
+		//Initialize the singleton
+		if (jsonDbHolder.jsonDb == null)
+			initJsonDb();
 	}
 
 	/**
@@ -40,8 +42,7 @@ public class JsonDAO {
 		private static ArrayList<Category> jsonDb;
 
 	}
-	
-	
+
 	public ArrayList<Category> getJsonDb() {
 		return jsonDbHolder.jsonDb;
 	}
@@ -157,12 +158,11 @@ public class JsonDAO {
 
 		return result;
 	}
-	
-	
+
 	/**
 	 * Initializes our db object with the content of the json
 	 */
-	private void initJsonDb(){
+	private void initJsonDb() {
 		JSONObject fullObject = getJSONFromFile(JsonDAO.ACHIEVEMENTS_JSON_PATH);
 		jsonDbHolder.jsonDb = parseJSONObjectToArrayList(fullObject);
 	}
