@@ -18,15 +18,36 @@ import com.lifechievements.model.Category;
 public class JsonDAO {
 
 	private Context context;
-	private ArrayList<Category> jsonDb;
+
+	public static final String ACHIEVEMENTS_JSON_PATH = "jsonData/achievements.json";
 
 	/**
 	 * Default constructor
 	 * 
-	 * @param ctx
+	 * @param context
 	 */
 	public JsonDAO(Context context) {
 		this.context = context;
+		initJsonDb();
+	}
+
+	/**
+	 * Singleton-like behaviour for jsonDb which contains all the
+	 * achievements/categories data
+	 */
+	private static class jsonDbHolder {
+
+		private static ArrayList<Category> jsonDb;
+
+	}
+	
+	
+	public ArrayList<Category> getJsonDb() {
+		return jsonDbHolder.jsonDb;
+	}
+
+	public void setJsonDb(ArrayList<Category> jsonDb) {
+		jsonDbHolder.jsonDb = jsonDb;
 	}
 
 	/**
@@ -71,7 +92,7 @@ public class JsonDAO {
 	 * @param jsonObject
 	 * @return
 	 */
-	public ArrayList<Category> JSONObjectToArrayList(JSONObject jsonObject) {
+	public ArrayList<Category> parseJSONObjectToArrayList(JSONObject jsonObject) {
 		ArrayList<Category> results = new ArrayList<Category>();
 
 		try {
@@ -124,15 +145,25 @@ public class JsonDAO {
 	/**
 	 * @param jsonObject
 	 * @return parsed Achievement
-	 * @throws JSONException 
+	 * @throws JSONException
 	 */
-	private Achievement parseAchievement(JSONObject jsonObject) throws JSONException {
+	private Achievement parseAchievement(JSONObject jsonObject)
+			throws JSONException {
 		Achievement result = null;
 
 		result = new Achievement(jsonObject.getInt("id"),
 				jsonObject.getString("icon"), jsonObject.getString("title"),
 				jsonObject.getString("description"));
-		
+
 		return result;
+	}
+	
+	
+	/**
+	 * Initializes our db object with the content of the json
+	 */
+	private void initJsonDb(){
+		JSONObject fullObject = getJSONFromFile(JsonDAO.ACHIEVEMENTS_JSON_PATH);
+		jsonDbHolder.jsonDb = parseJSONObjectToArrayList(fullObject);
 	}
 }
