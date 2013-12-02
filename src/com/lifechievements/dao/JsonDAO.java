@@ -135,7 +135,7 @@ public class JsonDAO {
 			listSubCategories.add(parseCategory(arraySubCat.getJSONObject(i)));
 		}
 
-		new Category(jsonObject.getString("category"),
+		result = new Category(jsonObject.getString("category"),
 				jsonObject.getString("icon"), listAchievements,
 				listSubCategories);
 
