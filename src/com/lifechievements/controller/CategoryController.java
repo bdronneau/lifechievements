@@ -18,5 +18,9 @@ public class CategoryController {
 	public List<Category> findAll() {
 		return dao.findAll();
 	}
+	
+	public Category findSectionByPosition(int position){
+		return dao.findSectionByPosition(position);
+	}
 
 }

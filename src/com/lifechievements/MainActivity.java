@@ -1,23 +1,23 @@
 package com.lifechievements;
 
+import java.util.List;
 import java.util.Locale;
-
-
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ListView;
+
+import com.lifechievements.components.FragmentPinnedSectionListAdapter;
+import com.lifechievements.controller.CategoryController;
+import com.lifechievements.model.Category;
 
 public class MainActivity extends FragmentActivity {
 
@@ -35,11 +35,15 @@ public class MainActivity extends FragmentActivity {
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-	
+
+	CategoryController categoryController;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		categoryController = new CategoryController(this);
 
 		// Create the adapter that will return a fragment for each of the three
 		// primary sections of the app.
@@ -71,61 +75,51 @@ public class MainActivity extends FragmentActivity {
 
 		@Override
 		public Fragment getItem(int position) {
-			// getItem is called to instantiate the fragment for the given page.
-			// Return a DummySectionFragment (defined as a static inner class
-			// below) with the page number as its lone argument.
-			Fragment fragment = new DummySectionFragment();
+			Fragment fragment = new PinnedSectionListFragment();
+			
 			Bundle args = new Bundle();
-			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-			fragment.setArguments(args);
+            args.putInt(PinnedSectionListFragment.ARG_SECTION_NUMBER, position);
+            fragment.setArguments(args);
 			return fragment;
 		}
 
 		@Override
 		public int getCount() {
-			// Show 3 total pages.
-			return 4;
+			return categoryController.findAll().size();
 		}
 
 		@Override
 		public CharSequence getPageTitle(int position) {
-			Locale l = Locale.getDefault();
-			switch (position) {
-			case 0:
-				return getString(R.string.title_section1).toUpperCase(l);
-			case 1:
-				return getString(R.string.title_section2).toUpperCase(l);
-			case 2:
-				return getString(R.string.title_section3).toUpperCase(l);
-			}
-			return null;
+			return categoryController.findSectionByPosition(position).getTitle();
 		}
 	}
 
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
-	public static class DummySectionFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-		public static final String ARG_SECTION_NUMBER = "section_number";
+	public static class PinnedSectionListFragment extends Fragment {
 
-		public DummySectionFragment() {
+		public static final String ARG_SECTION_NUMBER = "section_number";
+		
+		public PinnedSectionListFragment() {
+
 		}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main_dummy,
+			View rootView = inflater.inflate(R.layout.pinned_section_list_view,
 					container, false);
-			TextView dummyTextView = (TextView) rootView
-					.findViewById(R.id.section_label);
-			dummyTextView.setText(Integer.toString(getArguments().getInt(
-					ARG_SECTION_NUMBER)));
+			ListView pinnedSectionListView = (ListView) rootView
+					.findViewById(R.id.pinned_section_list);
+
+			CategoryController cc = new CategoryController(getActivity());
+			List<Category> list = cc.findAll();
+
+			FragmentPinnedSectionListAdapter pinnedSectionListAdapter = new FragmentPinnedSectionListAdapter(
+					getActivity(), list.get(getArguments().getInt(
+                            ARG_SECTION_NUMBER)));
+
+			pinnedSectionListView.setAdapter(pinnedSectionListAdapter);
 			return rootView;
 		}
 	}
+
 }

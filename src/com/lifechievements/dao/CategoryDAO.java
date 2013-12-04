@@ -17,5 +17,9 @@ public class CategoryDAO {
 	public List<Category> findAll() {
 		return jdao.getJsonDb();
 	}
+	
+	public Category findSectionByPosition(int position){
+		return jdao.getJsonDb().get(position);
+	}
 
 }
