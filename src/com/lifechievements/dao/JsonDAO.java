@@ -19,7 +19,7 @@ public class JsonDAO {
 
 	private Context context;
 
-	public static final String ACHIEVEMENTS_JSON_PATH = "jsonData/achievements.json";
+	public static final String ACHIEVEMENTS_JSON_PATH = "jsonData";
 
 	/**
 	 * Default constructor
@@ -28,7 +28,7 @@ public class JsonDAO {
 	 */
 	public JsonDAO(Context context) {
 		this.context = context;
-		//Initialize the singleton
+		// Initialize the singleton
 		if (jsonDbHolder.jsonDb == null)
 			initJsonDb();
 	}
@@ -163,7 +163,23 @@ public class JsonDAO {
 	 * Initializes our db object with the content of the json
 	 */
 	private void initJsonDb() {
-		JSONObject fullObject = getJSONFromFile(JsonDAO.ACHIEVEMENTS_JSON_PATH);
-		jsonDbHolder.jsonDb = parseJSONObjectToArrayList(fullObject);
+		String[] list;
+		ArrayList<Category> listCategory = new ArrayList<Category>();
+		try {
+			list = context.getAssets().list(JsonDAO.ACHIEVEMENTS_JSON_PATH);
+
+			if (list.length > 0) {
+				// This is a folder
+				for (String file : list) {
+					JSONObject fullObject = getJSONFromFile(JsonDAO.ACHIEVEMENTS_JSON_PATH
+							+ "/" + file);
+					listCategory.add(parseJSONObjectToArrayList(fullObject).get(0));
+
+				}
+			}
+			jsonDbHolder.jsonDb = listCategory;
+		} catch (IOException e) {
+			Log.e("JSON Parser", "Error parsing data " + e.toString());
+		}
 	}
 }

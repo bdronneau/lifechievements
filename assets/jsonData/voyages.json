@@ -1,0 +1,35 @@
+{
+    "achievements": [
+        {
+            "category": "Travel",
+			"icon":"path_to_icon",
+            "children": [
+                {
+                	"id": 500,
+                    "title": "Visiting Australia",
+                    "description": "Went to Australia at least once",
+                    "difficulty": "1",
+					"icon":"path_to_icon"
+                    
+                },
+                {
+                	"id": 501,
+                    "title": "Visiting France",
+                    "description": "Went to France at least once",
+                    "difficulty": "1",
+					"icon":"path_to_icon"
+                    
+                },
+                {
+                    "id": 502,
+                    "title": "Visiting UK",
+                    "description": "Went to UK at least once",
+                    "difficulty": "1",
+                    "icon":"path_to_icon"
+                    
+                }
+            ],
+			"subCategories":[]
+        }
+    ]
+}
