@@ -11,3 +11,6 @@
 # generated files
 bin/
 gen/
+
+#Mac Fuckin' files
+.DS_Store
