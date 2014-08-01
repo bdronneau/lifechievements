@@ -1,32 +1,24 @@
 {
     "achievements": [
         {
-            "category": "Cat1",
+            "category": "Games",
 			"icon":"path_to_icon",
             "children": [
                 {
                 	"id": 1,
-                    "title": "Welcome",
+                    "title": "BF",
                     "description": "Launch at least once the app in order to unlock this achievement",
-                    "difficulty": "1",
-					"icon":"path_to_icon"
-                    
-                },
-                {
-                	"id": 2,
-                    "title": "Make a click",
-                    "description": "Hit me !",
                     "difficulty": "1",
 					"icon":"path_to_icon"
                     
                 }
             ],
 			"subCategories":[{ 
-				"category": "SubCat1",
+				"category": "Unfair game",
 				"icon":"path_to_icon",
 				"children": [{
 						"id": 100,
-						"title": "SubCatExample",
+						"title": "Make a Tbag",
 						"description": "Example",
 						"difficulty" : "1",
 					    "icon":"path_to_icon"
@@ -35,7 +27,7 @@
 			}]
         },
         {
-            "category": "Cat2",
+            "category": "Games 2",
 			"icon":"path_to_icon",
             "children": [
                 {

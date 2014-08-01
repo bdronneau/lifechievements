@@ -1,12 +1,12 @@
 {
     "achievements": [
         {
-            "category": "Travel",
+            "category": "Music",
 			"icon":"path_to_icon",
             "children": [
                 {
                 	"id": 500,
-                    "title": "Visiting Australia",
+                    "title": "Go to concert",
                     "description": "Went to Australia at least once",
                     "difficulty": "1",
 					"icon":"path_to_icon"
@@ -14,7 +14,7 @@
                 },
                 {
                 	"id": 501,
-                    "title": "Visiting France",
+                    "title": "Got to Solidays",
                     "description": "Went to France at least once",
                     "difficulty": "1",
 					"icon":"path_to_icon"
