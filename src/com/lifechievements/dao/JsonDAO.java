@@ -166,6 +166,7 @@ public class JsonDAO {
 		String[] list;
 		ArrayList<Category> listCategory = new ArrayList<Category>();
 		try {
+			//Get All files from folder
 			list = context.getAssets().list(JsonDAO.ACHIEVEMENTS_JSON_PATH);
 
 			if (list.length > 0) {
@@ -174,29 +175,13 @@ public class JsonDAO {
 					JSONObject fullObject = getJSONFromFile(JsonDAO.ACHIEVEMENTS_JSON_PATH
 							+ "/" + file);
 					listCategory.add(parseJSONObjectToArrayList(fullObject).get(0));
-
 				}
 			}
-			jsonDbHolder.jsonDb = listCategory;
+			//Pass data to singleton
+			this.setJsonDb(listCategory);
 		} catch (IOException e) {
 			Log.e("JSON Parser", "Error parsing data " + e.toString());
 		}
 	}
 
-	/**
-	* Get all JSON from assets directory
-	* @param myPathToJSON : path to JSON asset -> assets/jsonData
-	* @return myFileJSON[] : contains all JSON categories to load in app //TODO : IMPLEMENT
-	*/
-	private void getListJsonAssets(String myPathToJSON) {}
-	//TODO return list
-		AssetManager assetMgr = getAssets();
-
-		String[] listAssets = assetMgr.list(myPathToJSON);
-
-		for(String asset: listAssets) {
-  			//TODO : made something ?
-  			//doAssetyThing(asset);
-		}
-	}
 }
