@@ -1,7 +1,7 @@
 {
     "achievements": [
         {
-            "category": "Cat1",
+            "category": "General",
 			"icon":"path_to_icon",
             "children": [
                 {

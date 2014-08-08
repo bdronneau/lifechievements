@@ -7,11 +7,10 @@ import com.lifechievements.model.Category;
 
 public class AchievementDAO {
 	
-	private static String JSON_URL = "assets/achievement.json";
 	private JsonDAO jdao;
 	
 	public AchievementDAO(){
-		//init dao with  json file
+		//init dao with json file
 	}
 	
 	
