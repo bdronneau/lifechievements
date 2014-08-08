@@ -1,0 +1,23 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory 
+        android:title="@string/pref_settings_general_title"
+        android:key="pref_settings_general_key">
+        <ListPreference
+            android:dependency="pref_settings_language"
+            android:key="pref_settings_language_key"
+            android:title="@string/pref_settings_language_title"
+            android:dialogTitle="@string/pref_settings_language_dialog"
+            android:entries="@array/pref_settings_language_entries"
+            android:entryValues="@array/pref_settings_language_entryValues"
+            android:defaultValue="@string/pref_settings_language_defautValue" />
+    </PreferenceCategory>
+    <PreferenceCategory 
+        android:title="@string/pref_settings_network_title"
+        android:key="pref_settings_network_key">
+        <CheckBoxPreference
+            android:key="pref_send_reports_key"
+            android:summary="@string/pref_settings_send_reports_summary"
+            android:title="@string/pref_settings_send_reports _title"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+</PreferenceScreen>
