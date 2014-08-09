@@ -17,7 +17,7 @@
         <CheckBoxPreference
             android:key="pref_send_reports_key"
             android:summary="@string/pref_settings_send_reports_summary"
-            android:title="@string/pref_settings_send_reports _title"
+            android:title="@string/pref_settings_send_reports_title"
             android:defaultValue="true" />
     </PreferenceCategory>
 </PreferenceScreen>
