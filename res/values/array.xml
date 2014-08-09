@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array
+        name="pref_settings_language_entries">
+        <item>French</item>
+        <item>English</item>
+    </array>
+    <!-- TODO Make an array Integer -->
+    <array
+        name="pref_settings_language_entryValues">
+        <item>1</item>
+        <item>2</item>
+    </array>
+</resources>
