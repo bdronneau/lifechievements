@@ -1,8 +1,8 @@
 package com.lifechievements;
 
 import java.util.List;
-import java.util.Locale;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -11,9 +11,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+//TODO : DELETE this because is debug 
+import android.widget.Toast;
 
 import com.lifechievements.components.FragmentPinnedSectionListAdapter;
 import com.lifechievements.controller.CategoryController;
@@ -59,10 +63,31 @@ public class MainActivity extends FragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	   switch (item.getItemId()) {
+	       case R.id.menu_connect:
+	         Toast.makeText(this, "Connect", Toast.LENGTH_SHORT).show();
+	         return true;           
+	       case R.id.menu_about:
+	         Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+	         return true;           
+	        case R.id.menu_settings:
+	          //Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+	          //Intent intent = new Intent(this, SettingsActivity.class);
+	         //this.startActivity(intent);
+	          startActivity(new Intent(this, SettingsActivity.class));
+	          return true;           
+	        default:
+	          return super.onOptionsItemSelected(item);
+	    }
+	}
+	
 	/**
 	 * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
 	 * one of the sections/tabs/pages.
