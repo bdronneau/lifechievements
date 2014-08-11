@@ -61,6 +61,10 @@ public class MainActivity extends FragmentActivity {
 
 	}
 
+	/*
+	 * Load in layout activity_main a menu
+	 * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -68,12 +72,16 @@ public class MainActivity extends FragmentActivity {
 		return true;
 	}
 
+	/*
+	 * Listen action menuitem
+	 * @see android.app.Activity#onOptionsItemSelected(android.view.MenuItem)
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    // Handle item selection
 	   switch (item.getItemId()) {
 	       case R.id.menu_connect:
-	         Toast.makeText(this, "Connect", Toast.LENGTH_SHORT).show();
+	         Toast.makeText(this, "Nothing here (Connect)", Toast.LENGTH_SHORT).show();
 	         return true;           
 	       case R.id.menu_about:
 	         //Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
