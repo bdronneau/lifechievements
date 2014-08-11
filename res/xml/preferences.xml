@@ -3,7 +3,6 @@
         android:title="@string/pref_settings_general_title"
         android:key="pref_settings_general_key">
         <ListPreference
-            android:dependency="pref_settings_language"
             android:key="pref_settings_language_key"
             android:title="@string/pref_settings_language_title"
             android:dialogTitle="@string/pref_settings_language_dialog"
