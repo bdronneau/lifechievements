@@ -3,6 +3,7 @@ package com.lifechievements;
 import java.util.List;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -75,12 +76,11 @@ public class MainActivity extends FragmentActivity {
 	         Toast.makeText(this, "Connect", Toast.LENGTH_SHORT).show();
 	         return true;           
 	       case R.id.menu_about:
-	         Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+	         //Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+	    	 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/basti1dr/lifechievements")));
 	         return true;           
 	        case R.id.menu_settings:
 	          //Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
-	          //Intent intent = new Intent(this, SettingsActivity.class);
-	         //this.startActivity(intent);
 	          startActivity(new Intent(this, SettingsActivity.class));
 	          return true;           
 	        default:
